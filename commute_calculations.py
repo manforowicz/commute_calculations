@@ -27,7 +27,8 @@ commute_distance = 24
 fuel_cost_per_mile = 4 / 30
 
 # How much $/hr I think I should be paid to endure sitting in a car or bus.
-commuting_wage_per_hour = 35
+# The value of time I waste while commuting.
+commute_wage_per_hour = 35
 
 # Total hours per day to commute by car
 car_commute_time = 0.75
@@ -40,14 +41,15 @@ daily_car_cost = (
     daily_parking_cost
     + daily_bridge_toll
     + commute_distance * fuel_cost_per_mile
-    + commuting_wage_per_hour * car_commute_time
+    + commute_wage_per_hour * car_commute_time
 )
 
 # U-pass
-daily_bus_cost = 0 + commuting_wage_per_hour * bus_commute_time
+daily_bus_cost = 0 + commute_wage_per_hour * bus_commute_time
 
-print("Cost per school day (including time wasted) to...")
+print(f"Value of time I waste by commuting: ${commute_wage_per_hour:,.2f}/hr  ;)")
 print()
-print(f"Live in apartment: ${rent_per_school_day:,.2f}")
-print(f"Commute by car:    ${daily_car_cost:,.2f}")
-print(f"Commute by bus:    ${daily_bus_cost:,.2f}")
+print("Cost per school day (including time wasted) to...")
+print(f"Live in apartment:  ${rent_per_school_day:,.2f}")
+print(f"Commute by car:     ${daily_car_cost:,.2f}")
+print(f"Commute by bus:     ${daily_bus_cost:,.2f}")
